@@ -1,37 +1,117 @@
-*{
+/* --- 1. THE TYPOGRAPHY FIX --- */
+/* Setting the font on the body cascades it down to all text */
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    background: #4A89E8;
-}
-
-.panel{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #4A89E8;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #ffffff;
+    min-height: 100vh;
 }
 
-.pricing-plan{
-    background-color: #ffffff;
-    margin: 25px;
+/* --- 2. THE CONTINENT FIX --- */
+/* The background color and curves go on the parent manager, not the children */
+.panel {
+    background-color: white;
     border-radius: 10px;
-    text-align: center;
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    padding: 15px 25px;
 }
 
-.pricing-features{
+.pricing-plan {
+    flex: 1; /* Makes all 3 cards take up exactly equal space */
+    padding: 25px;
+    text-align: center; /* Centers all text, images, and buttons */
+}
+
+.pricing-img {
+    max-width: 100%;
+    margin-bottom: 25px;
+}
+
+.pricing-header {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* --- THE STUBBORN LIST FIX --- */
+.pricing-features {
     list-style: none;
     padding: 0;
+    margin: 50px 0 25px;
+    color: #2474E8;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.pricing-features-item{
+/* --- THE HORIZONTAL DIVIDERS --- */
+.pricing-features-item {
+    padding: 15px 0;
     border-top: 1px solid #e1f1ff;
-    border-bottom: 1px solid #e1f1ff;
-    padding: 15px;
 }
 
+/* Adds a bottom border ONLY to the very last item in the list */
+.pricing-features-item:last-child {
+    border-bottom: 1px solid #e1f1ff;
+}
 
+/* --- 3. THE STACKING FIX --- */
+/* Changing it to display: block forces it to take up its own line */
+.pricing-price {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #2474E8;
+    margin-bottom: 20px;
+}
+
+.pricing-button {
+    display: inline-block;
+    padding: 15px 35px;
+    border: 1px solid #9dd1ff;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #2474E8;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* Styling for the specific solid-blue middle button */
+.pricing-button.is-featured {
+    background-color: #48aaff;
+    color: white;
+    border: none;
+}
+
+/* Targets ONLY the 2nd pricing plan (the Small Team card) */
+.pricing-plan:nth-child(2) {
+    border-left: 1px solid #e1f1ff;
+    border-right: 1px solid #e1f1ff;
+}
+
+/* If the screen is 850px wide or smaller, apply these rules: */
+@media (max-width: 850px) {
+
+    /* 1. Stack the cards vertically */
+    .panel {
+        flex-direction: column;
+    }
+
+    /* 2. Swap the middle card's borders from vertical to horizontal */
+    .pricing-plan:nth-child(2) {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid #e1f1ff;
+        border-bottom: 1px solid #e1f1ff;
+    }
+}
