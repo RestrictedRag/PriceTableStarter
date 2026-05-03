@@ -1,5 +1,3 @@
-/* --- 1. THE TYPOGRAPHY FIX --- */
-/* Setting the font on the body cascades it down to all text */
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
@@ -10,8 +8,7 @@ body {
     min-height: 100vh;
 }
 
-/* --- 2. THE CONTINENT FIX --- */
-/* The background color and curves go on the parent manager, not the children */
+
 .panel {
     background-color: white;
     border-radius: 10px;
@@ -22,9 +19,9 @@ body {
 }
 
 .pricing-plan {
-    flex: 1; /* Makes all 3 cards take up exactly equal space */
+    flex: 1;
     padding: 25px;
-    text-align: center; /* Centers all text, images, and buttons */
+    text-align: center;
 }
 
 .pricing-img {
@@ -40,7 +37,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* --- THE STUBBORN LIST FIX --- */
 .pricing-features {
     list-style: none;
     padding: 0;
@@ -52,19 +48,16 @@ body {
     letter-spacing: 1px;
 }
 
-/* --- THE HORIZONTAL DIVIDERS --- */
 .pricing-features-item {
     padding: 15px 0;
     border-top: 1px solid #e1f1ff;
 }
 
-/* Adds a bottom border ONLY to the very last item in the list */
+
 .pricing-features-item:last-child {
     border-bottom: 1px solid #e1f1ff;
 }
 
-/* --- 3. THE STACKING FIX --- */
-/* Changing it to display: block forces it to take up its own line */
 .pricing-price {
     display: block;
     font-size: 32px;
@@ -86,28 +79,23 @@ body {
     letter-spacing: 1px;
 }
 
-/* Styling for the specific solid-blue middle button */
 .pricing-button.is-featured {
     background-color: #48aaff;
     color: white;
     border: none;
 }
 
-/* Targets ONLY the 2nd pricing plan (the Small Team card) */
 .pricing-plan:nth-child(2) {
     border-left: 1px solid #e1f1ff;
     border-right: 1px solid #e1f1ff;
 }
 
-/* If the screen is 850px wide or smaller, apply these rules: */
 @media (max-width: 850px) {
 
-    /* 1. Stack the cards vertically */
     .panel {
         flex-direction: column;
     }
 
-    /* 2. Swap the middle card's borders from vertical to horizontal */
     .pricing-plan:nth-child(2) {
         border-left: none;
         border-right: none;
